@@ -55,6 +55,9 @@ const gallery = (req, res) => {
 const service = (req, res) => {
   res.render("service");
 };
+const bmi = (req, res) => {
+  res.render("bmi");
+};
 
 module.exports = {
   home,
@@ -65,4 +68,5 @@ module.exports = {
   form,
   gallery,
   service,
+  bmi
 };

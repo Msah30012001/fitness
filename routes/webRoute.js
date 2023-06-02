@@ -8,7 +8,8 @@ const {
   storeMember,
   form,
   gallery,
-  service
+  service,
+  bmi
 } = require("../controllers/webController");
 
 // frontend page routes
@@ -20,5 +21,6 @@ router.route("/save-member").post(storeMember);
 router.route("/form").get(form);
 router.route("/gallery").get(gallery);
 router.route("/services").get(service);
+router.route("/bmi").get(bmi);
 
 module.exports = router;
