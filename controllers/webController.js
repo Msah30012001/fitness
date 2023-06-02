@@ -1,6 +1,8 @@
 const axios = require("axios");
 const config = require("../config/config");
 const Contact = require("../models/contactModel")
+const Member = require("../models/memberModel");
+
 
 const home = (req, res) => {
   res.render("index");
@@ -32,6 +34,21 @@ const storeContact = async (req, res, next) => {
 const form = (req, res) => {
   res.render("form");
 };
+const storeMember = async (req, res, next) => {
+  try {
+    const member = new Member({ ...req.body });
+    const createMember = await member.save();
+
+    // Temporary status data
+    const temporaryStatus = "Member saved successfully!";
+
+    // Render back to the Member page with temporary status
+    return res.render("form", { status: temporaryStatus });
+  } catch (error) {
+    console.log(error);
+    return res.render("form", { error: "failed to save Member" });
+  }
+};
 const gallery = (req, res) => {
   res.render("gallery");
 };
@@ -44,6 +61,7 @@ module.exports = {
   about,
   contact,
   storeContact,
+  storeMember,
   form,
   gallery,
   service,

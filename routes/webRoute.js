@@ -5,6 +5,7 @@ const {
   about,
   contact,
   storeContact,
+  storeMember,
   form,
   gallery,
   service
@@ -15,8 +16,9 @@ router.route("/").get(home);
 router.route("/about").get(about);
 router.route("/save-contact").post(storeContact)
 router.route("/contact").get(contact);
+router.route("/save-member").post(storeMember);
 router.route("/form").get(form);
 router.route("/gallery").get(gallery);
-router.route("/service").get(service);
+router.route("/services").get(service);
 
 module.exports = router;
